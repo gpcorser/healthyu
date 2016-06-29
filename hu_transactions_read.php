@@ -88,7 +88,7 @@
     
     	<div class="span10 offset1">
     		<div class="row">
-		    	<h3>HealthyU: Update Transaction</h3>
+		    	<h3>HealthyU: Read Transaction</h3>
 		    </div>
 			<p>
 				<a href="hu_start.html" class="btn btn-primary">Back to Start</a>
@@ -147,7 +147,7 @@
 				<div class="control-group <?php echo !empty($trans_dateError)?'error':'';?>">
 					<label class="control-label">trans_date</label>
 					<div class="controls">
-						<input id="trans_date" name="trans_date" type="date"  placeholder="date" value="<?php echo !empty($trans_date)?$trans_date:'';?>">
+						<input id="trans_date" name="trans_date" type="date"  placeholder="date" value="<?php echo !empty($trans_date)?$trans_date:'';?>" readonly>
 						<?php if (!empty($trans_dateError)): ?>
 							<span class="help-inline"><?php echo $trans_dateError;?></span>
 						<?php endif;?>
@@ -158,7 +158,7 @@
 				<div class="control-group <?php echo !empty($minutesError)?'error':'';?>">
 					<label class="control-label">minutes</label>
 					<div class="controls">
-						<input name="minutes" type="text"  placeholder="minutes" value="<?php echo !empty($minutes)?$minutes:'';?>" id="minutes" onkeyup="calcExercisePoints()">
+						<input name="minutes" type="text"  placeholder="minutes" value="<?php echo !empty($minutes)?$minutes:'';?>" id="minutes" onkeyup="calcExercisePoints()" readonly>
 						<?php if (!empty($minutesError)): ?>
 							<span class="help-inline"><?php echo $minutesError;?></span>
 						<?php endif;?>
@@ -183,7 +183,7 @@
 				<div class="control-group">
 					<label class="control-label">trans_hu_activity</label>
 					<div class="controls">
-						<input type="checkbox" name="trans_hu_activity" id="trans_hu_activity" value="1" onclick="trans_hu_activity_click();calcExercisePoints();" <?php echo !empty($trans_hu_activity)?'checked':'';?> >
+						<input type="checkbox" name="trans_hu_activity" id="trans_hu_activity" value="1" onclick="trans_hu_activity_click();calcExercisePoints();" <?php echo !empty($trans_hu_activity)?'checked':'';?> readonly>
 					</div>
 				</div>
 				
@@ -191,7 +191,7 @@
 				<div class="control-group">
 					<label class="control-label">trans_strength_activity</label>
 					<div class="controls">
-						<input type="checkbox" name="trans_strength_activity" id="trans_strength_activity" value="1" onclick="trans_strength_activity_click();calcExercisePoints();" <?php echo !empty($trans_strength_activity)?'checked':'';?> >
+						<input type="checkbox" name="trans_strength_activity" id="trans_strength_activity" value="1" onclick="trans_strength_activity_click();calcExercisePoints();" <?php echo !empty($trans_strength_activity)?'checked':'';?> readonly>
 					</div>
 				</div>
 				
@@ -199,12 +199,11 @@
 				<div class="control-group">
 					<label class="control-label">trans_fitness_class</label>
 					<div class="controls">
-						<input type="checkbox" name="trans_fitness_class" id="trans_fitness_class" value="1" onclick="trans_fitness_class_click();calcExercisePoints();" <?php echo !empty($trans_fitness_class)?'checked':'';?> >
+						<input type="checkbox" name="trans_fitness_class" id="trans_fitness_class" value="1" onclick="trans_fitness_class_click();calcExercisePoints();" <?php echo !empty($trans_fitness_class)?'checked':'';?> readonly>
 					</div>
 				</div>
 				
 				<div class="form-actions">
-					<button type="submit" class="btn btn-success">Update</button>
 					<a class="btn" href="hu_transactions_list.php">Back</a>
 				</div>
 				

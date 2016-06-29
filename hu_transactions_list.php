@@ -41,7 +41,7 @@
 					$sql .= 'ON HU1.user_id = HU2.id ' ;
 					$sql .= 'INNER JOIN healthyu_transtypes AS HU3 ';
 					$sql .= 'ON HU1.transtype_id = HU3.id ' ;
-					$sql .= 'ORDER BY HU2.username ASC';
+					$sql .= 'ORDER BY HU2.username ASC, HU1.trans_date DESC';
 					foreach ($pdo->query($sql) as $row) {
 						echo '<tr>';
 						echo '<td>'. $row['username'] . '</td>';
