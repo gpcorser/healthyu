@@ -6,7 +6,7 @@
     <script src="js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body>    
     <div id="body"></div>
     <script>
         xhttp = new XMLHttpRequest();
@@ -15,7 +15,9 @@
                 document.getElementById("body").innerHTML = xhttp.responseText;
         }};
 
-        xhttp.open("GET", "hu_users_list.php", true);
+        id = window.location.search.substring(1);
+        id = id.split("=");
+        xhttp.open("GET", "hu_users_delete.php?id=" + id[1], true);
         xhttp.send();
     </script>
 </body>

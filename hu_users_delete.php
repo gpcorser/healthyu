@@ -17,7 +17,7 @@
 		$q = $pdo->prepare($sql);
 		$q->execute(array($id));
 		Database::disconnect();
-		header("Location: hu_users_list.php");
+		header("Location: hu_users_list.html");
 	} 
 ?>
 
@@ -45,7 +45,7 @@
 				<p class="alert alert-error">Are you sure you want to delete?</p>
 				<div class="form-actions">
 					<button type="submit" class="btn btn-danger">Yes</button>
-					<a class="btn" href="hu_users_list.php">No</a>
+					<a class="btn" href="hu_users_list.html">No</a>
 				</div>
 			</form>
 		</div>

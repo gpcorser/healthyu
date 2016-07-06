@@ -52,7 +52,7 @@
 			$q = $pdo->prepare($sql);
 			$q->execute(array($user_id,$transtype_id,$trans_date,$trans_points,$minutes, $trans_exercise_points, $trans_hu_activity, $trans_strength_activity, $trans_fitness_class, $id));
 			Database::disconnect();
-			header("Location: hu_transactions_list.php");
+			header("Location: hu_transactions_list.html");
 		}
 	} else {
 		$pdo = Database::connect();
@@ -74,16 +74,6 @@
 	}
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link   href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
-	<script src="hu_transactions.js"></script>
-</head>
-
-<body onload="calcExercisePoints();">
     <div class="container">
     
     	<div class="span10 offset1">
@@ -204,7 +194,7 @@
 				</div>
 				
 				<div class="form-actions">
-					<a class="btn" href="hu_transactions_list.php">Back</a>
+					<a class="btn" href="hu_transactions_list.html">Back</a>
 				</div>
 				
 			</form>
@@ -212,5 +202,3 @@
 		</div> <!-- end: span 10 offset -->
 				
     </div> <!-- end: container -->
-  </body>
-</html>

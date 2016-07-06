@@ -6,7 +6,7 @@
 	}
 	
 	if ( null==$id ) {
-		header("Location: hu_users_list.php");
+		header("Location: hu_users_list.html");
 	} else {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,17 +18,7 @@
 	}
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link   href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
-</head>
-
-<body>
     <div class="container">
-    
 		<div class="span10 offset1">
 			<div class="row">
 				<h3>HealthyU: Read User (Details)</h3>
@@ -41,7 +31,7 @@
 					<label class="control-label">username</label>
 					<div class="controls">
 						<label class="checkbox">
-							<?php echo $data['username'];?>
+							<?php echo $data['username']; ?>
 						</label>
 					</div>
 				</div>
@@ -52,19 +42,14 @@
 					<label class="control-label">fullname</label>
 					<div class="controls">
 						<label class="checkbox">
-							<?php echo $data['fullname'];?>
+							<?php echo $data['fullname']; ?>
 						</label>
 					</div>
 				</div>
 			</div>
 
 			<div class="form-actions">
-				<a class="btn" href="hu_users_list.php">Back</a>
+				<a class="btn" href="hu_users_list.html">Back</a>
 			</div>
-
-			</div>
-		</div>
-				
+		</div>				
     </div> <!-- /container -->
-  </body>
-</html>

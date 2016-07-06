@@ -6,7 +6,7 @@
 	}
 	
 	if ( null==$id ) {
-		header("Location: hu_transtypes_list.php");
+		header("Location: hu_transtypes_list.html");
 	}
 	
 	// if data was entered by the user
@@ -55,7 +55,7 @@
 			$q = $pdo->prepare($sql);
 			$q->execute(array($description,$points,$hu_activity,$strength_activity,$fitness_class,$id));
 			Database::disconnect();
-			header("Location: hu_transtypes_list.php");
+			header("Location: hu_transtypes_list.html");
 		}
 	} else {
 		$pdo = Database::connect();
@@ -73,15 +73,6 @@
 	}
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link   href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
-</head>
-
-<body>
     <div class="container">
     
     	<div class="span10 offset1">
@@ -97,59 +88,42 @@
 				<div class="control-group <?php echo !empty($descriptionError)?'error':'';?>">
 					<label class="control-label">description</label>
 					<div class="controls">
-						<input name="description" type="text"  placeholder="description" value="<?php echo !empty($description)?$description:'';?>">
-						<?php if (!empty($descriptionError)): ?>
-							<span class="help-inline"><?php echo $descriptionError;?></span>
-						<?php endif; ?>
+						<input name="description" type="text"  placeholder="description" value="<?php echo !empty($description)?$description:'';?>" required>
 					</div>
 				</div>	
 				
 				<div class="control-group <?php echo !empty($pointsError)?'error':'';?>">
 					<label class="control-label">points</label>
 					<div class="controls">
-						<input name="points" type="text"  placeholder="points" value="<?php echo !empty($points)?$points:'';?>">
-						<?php if (!empty($pointsError)): ?>
-							<span class="help-inline"><?php echo $pointsError;?></span>
-						<?php endif; ?>
+						<input name="points" type="text"  placeholder="points" value="<?php echo !empty($points)?$points:'';?>" required>
 					</div>
 				</div>
 			  
 				<div class="control-group <?php echo !empty($hu_activityError)?'error':'';?>">
 					<label class="control-label">hu_activity</label>
 					<div class="controls">
-						<input name="hu_activity" type="text" placeholder="hu_activity" value="<?php echo !empty($hu_activity)?$hu_activity:'';?>">
-						<?php if (!empty($hu_activityError)): ?>
-							<span class="help-inline"><?php echo $hu_activityError;?></span>
-						<?php endif;?>
+						<input name="hu_activity" type="number" placeholder="hu_activity" value="<?php echo !empty($hu_activity)?$hu_activity:'';?>" min="0" max="1">
 					</div>
 				</div>
 				
 				<div class="control-group <?php echo !empty($strength_activityError)?'error':'';?>">
 					<label class="control-label">strength_activity</label>
 					<div class="controls">
-						<input name="strength_activity" type="text" placeholder="strength_activity" value="<?php echo !empty($strength_activity)?$strength_activity:'';?>">
-						<?php if (!empty($strength_activityError)): ?>
-							<span class="help-inline"><?php echo $strength_activityError;?></span>
-						<?php endif;?>
+						<input name="strength_activity" type="number" placeholder="strength_activity" value="<?php echo !empty($strength_activity)?$strength_activity:'';?>" min="0" max="1">
 					</div>
 				</div>		
 				<div class="control-group <?php echo !empty($fitness_classError)?'error':'';?>">
 					<label class="control-label">fitness_class</label>
 					<div class="controls">
-						<input name="fitness_class" type="text" placeholder="fitness_class" value="<?php echo !empty($fitness_class)?$fitness_class:'';?>">
-						<?php if (!empty($fitness_classError)): ?>
-							<span class="help-inline"><?php echo $fitness_classError;?></span>
-						<?php endif;?>
+						<input name="fitness_class" type="number" placeholder="fitness_class" value="<?php echo !empty($fitness_class)?$fitness_class:'';?>" min="0" max="1">
 					</div>
 				</div>		
 				
 				<div class="form-actions">
 					<button type="submit" class="btn btn-success">Update</button>
-					<a class="btn" href="hu_transtypes_list.php">Back</a>
+					<a class="btn" href="hu_transtypes_list.html">Back</a>
 				</div>
 			</form>
 		</div>
 				
     </div> <!-- /container -->
-  </body>
-</html>

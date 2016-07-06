@@ -16,7 +16,7 @@
     	</div>
 		<div class="row">
 			<p>
-				<a href="hu_transactions_create.php" class="btn btn-success">Create</a>
+				<a href="hu_transactions_create.html" class="btn btn-success">Create</a>
 				<a href="hu_start.html" class="btn btn-primary">Back to Start</a>
 			</p>
 			<!-- 	 2. body: display table --> 
@@ -50,11 +50,11 @@
 						echo '<td>'. $row['trans_points'] . '</td>';
 						echo '<td>'. $row['minutes'] . '</td>';
 						echo '<td width=250>';
-						echo '<a class="btn" href="hu_transactions_read.php?id='.$row[0].'">Read</a>';
+						echo '<a class="btn" href="hu_transactions_read.html?id='.$row[0].'">Read</a>';
 						echo '&nbsp;';
-						echo '<a class="btn btn-success" href="hu_transactions_update.php?id='.$row[0].'">Update</a>';
+						echo '<a class="btn btn-success" href="hu_transactions_update.html?id='.$row[0].'">Update</a>';
 						echo '&nbsp;';
-						echo '<a class="btn btn-danger" href="hu_transactions_delete.php?id='.$row[0].'">Delete</a>';
+						echo '<a class="btn btn-danger" href="hu_transactions_delete.html?id='.$row[0].'">Delete</a>';
 						echo '</td>';
 						echo '</tr>';
 					}

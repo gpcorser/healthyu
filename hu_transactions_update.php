@@ -6,7 +6,7 @@
 	}
 	
 	if ( null==$id ) {
-		header("Location: hu_transactions_list.php");
+		header("Location: hu_transactions_list.html");
 	}
 	
 	// if data was entered by the user
@@ -52,7 +52,7 @@
 			$q = $pdo->prepare($sql);
 			$q->execute(array($user_id,$transtype_id,$trans_date,$trans_points,$minutes, $trans_exercise_points, $trans_hu_activity, $trans_strength_activity, $trans_fitness_class, $id));
 			Database::disconnect();
-			header("Location: hu_transactions_list.php");
+			header("Location: hu_transactions_list.html");
 		}
 	} else {
 		$pdo = Database::connect();
@@ -74,16 +74,6 @@
 	}
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link   href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
-	<script src="hu_transactions.js"></script>
-</head>
-
-<body onload="calcExercisePoints();">
     <div class="container">
     
     	<div class="span10 offset1">
@@ -147,10 +137,7 @@
 				<div class="control-group <?php echo !empty($trans_dateError)?'error':'';?>">
 					<label class="control-label">trans_date</label>
 					<div class="controls">
-						<input id="trans_date" name="trans_date" type="date"  placeholder="date" value="<?php echo !empty($trans_date)?$trans_date:'';?>">
-						<?php if (!empty($trans_dateError)): ?>
-							<span class="help-inline"><?php echo $trans_dateError;?></span>
-						<?php endif;?>
+						<input id="trans_date" name="trans_date" type="date"  placeholder="date" value="<?php echo !empty($trans_date)?$trans_date:'';?>" required>
 					</div>
 				</div>
 				
@@ -158,10 +145,7 @@
 				<div class="control-group <?php echo !empty($minutesError)?'error':'';?>">
 					<label class="control-label">minutes</label>
 					<div class="controls">
-						<input name="minutes" type="text"  placeholder="minutes" value="<?php echo !empty($minutes)?$minutes:'';?>" id="minutes" onkeyup="calcExercisePoints()">
-						<?php if (!empty($minutesError)): ?>
-							<span class="help-inline"><?php echo $minutesError;?></span>
-						<?php endif;?>
+						<input name="minutes" type="number"  placeholder="minutes" value="<?php echo !empty($minutes)?$minutes:'';?>" id="minutes" onkeyup="calcExercisePoints()" min="0" required>
 					</div>
 				</div>	
 				
@@ -205,7 +189,7 @@
 				
 				<div class="form-actions">
 					<button type="submit" class="btn btn-success">Update</button>
-					<a class="btn" href="hu_transactions_list.php">Back</a>
+					<a class="btn" href="hu_transactions_list.html">Back</a>
 				</div>
 				
 			</form>
@@ -213,5 +197,3 @@
 		</div> <!-- end: span 10 offset -->
 				
     </div> <!-- end: container -->
-  </body>
-</html>

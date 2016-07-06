@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <div id="body"></div>
+    <div id="body"></div>  
     <script>
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -15,8 +15,10 @@
                 document.getElementById("body").innerHTML = xhttp.responseText;
         }};
 
-        xhttp.open("GET", "hu_users_list.php", true);
+        id = window.location.search.substring(1);
+        id = id.split("=");
+        xhttp.open("GET", "hu_users_read.php?id=" + id[1], true);
         xhttp.send();
-    </script>
+    </script>    
 </body>
 </html>

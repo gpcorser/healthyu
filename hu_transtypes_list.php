@@ -15,7 +15,7 @@
 
 		<div class="row">
 			<p>
-				<a href="hu_transtypes_create.php" class="btn btn-success">Create</a>
+				<a href="hu_transtypes_create.html" class="btn btn-success">Create</a>
 				<a href="hu_start.html" class="btn btn-primary">Back to Start</a>
 			</p>
 			<!-- 	 2. body: display table --> 
@@ -50,11 +50,11 @@
 						else $fitness = "";
 						echo '<td>'. $fitness . '</td>';
 						echo '<td width=250>';
-						echo '<a class="btn" href="hu_transtypes_read.php?id='.$row['id'].'">Read</a>';
+						echo '<a class="btn" href="hu_transtypes_read.html?id='.$row['id'].'">Read</a>';
 						echo '&nbsp;';
-						echo '<a class="btn btn-success" href="hu_transtypes_update.php?id='.$row['id'].'">Update</a>';
+						echo '<a class="btn btn-success" href="hu_transtypes_update.html?id='.$row['id'].'">Update</a>';
 						echo '&nbsp;';
-						echo '<a class="btn btn-danger" href="hu_transtypes_delete.php?id='.$row['id'].'">Delete</a>';
+						echo '<a class="btn btn-danger" href="hu_transtypes_delete.html?id='.$row['id'].'">Delete</a>';
 						echo '</td>';
 						echo '</tr>';
 					}

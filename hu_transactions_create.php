@@ -39,6 +39,10 @@
 		// insert record
 		if ($valid) 
 		{
+			if(empty($trans_hu_activity)) $trans_hu_activity = 0;
+			if(empty($trans_strength_activity)) $trans_strength_activity = 0;
+			if(empty($trans_fitness_class)) $trans_fitness_class = 0;
+			
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$sql = "INSERT INTO healthyu_transactions ";
@@ -51,16 +55,7 @@
 		}
 	}
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <link   href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
-	<script src="hu_transactions.js"></script>
-</head>
 
-<body onload="calcDate();">
     <div class="container">
     
 		<div class="span10 offset1">
@@ -126,7 +121,7 @@
 				<div class="control-group <?php echo !empty($trans_dateError)?'error':'';?>">
 					<label class="control-label">trans_date</label>
 					<div class="controls">
-						<input id="trans_date" name="trans_date" type="date"  placeholder="date" value="<?php echo !empty($trans_date)?$trans_date:'';?>">
+						<input id="trans_date" name="trans_date" type="date"  placeholder="date" value="<?php echo !empty($trans_date)?$trans_date:'';?>" required>
 						<?php if (!empty($trans_dateError)): ?>
 							<span class="help-inline"><?php echo $trans_dateError;?></span>
 						<?php endif;?>
@@ -136,7 +131,7 @@
 				<div class="control-group <?php echo !empty($minutesError)?'error':'';?>">
 					<label class="control-label">minutes</label>
 					<div class="controls">
-						<input name="minutes" type="text"  placeholder="minutes" value="<?php echo !empty($minutes)?$minutes:'';?>" id="minutes" onkeyup="calcExercisePoints()">
+						<input name="minutes" type="number"  placeholder="minutes" value="<?php echo !empty($minutes)?$minutes:'';?>" id="minutes" onkeyup="calcExercisePoints()" min="0" required>
 						<?php if (!empty($minutesError)): ?>
 							<span class="help-inline"><?php echo $minutesError;?></span>
 						<?php endif;?>
@@ -190,5 +185,3 @@
 			
 		</div> <!-- end: span10 offset1 -->
     </div> <!-- end: container -->
-</body>
-</html>
