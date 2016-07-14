@@ -4,23 +4,74 @@
     <meta charset="utf-8">
     <link   href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="hu_vars.js"></script>
-    <script>
-        function retrievePage() {
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    document.getElementById("body").innerHTML = xhttp.responseText;
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#insert").click( function() {
+                var username=$("#username").val();
+                var fullname=$("#fullname").val();
+                var password_hash=$("#password_hash").val();                
+                var dataString=
+                     "username="+username
+                    +"&fullname="+fullname
+                    +"&password_hash="+password_hash
+                    +"&insert=";                
+                if(   $.trim(username).length>0 
+                    & $.trim(fullname).length>0 
+                    & $.trim(password_hash).length>0) {
+                    $.ajax( {
+                        type: "POST",
+                        url: URL + "hu_users_create.php",
+                        data: dataString,
+                        crossDomain: true,
+                        cache: false,
+                        beforeSend: function(){ $("#insert").val('Connecting...');},
+                        success: function(data){ location.href = URL + "hu_users_list.html"; }
+                    });
                 }
-            };
-            
-            xhttp.open("GET", URL + "hu_users_create.php", true);
-            xhttp.send();
-        }
+                return false;
+            });
+    });
     </script>
 </head>
 
-<body onload="retrievePage();">
-    <div id="body"></div>    
+<body>
+    <div class="container">
+		<div class="span10 offset1">
+			<div class="row">
+				<h3>HealthyU: Create User</h3>
+			</div>
+            
+			<p><a href="hu_start.html" class="btn btn-primary">Back to Start</a></p>
+            
+            <div class="control-group">
+                <label class="control-label">username</label>
+                <div class="controls">
+                    <input id="username" type="text"  placeholder="username" value="" required>
+                </div>
+            </div>
+            
+            <div class="control-group ">
+                <label class="control-label">fullname</label>
+                <div class="controls">
+                    <input id="fullname" type="text"  placeholder="fullname" value="" required>
+                </div>
+            </div>
+          
+            <div class="control-group">
+                <label class="control-label">password_hash</label>
+                <div class="controls">
+                    <input id="password_hash" type="text" placeholder="password_hash" value="" required>
+                </div>
+            </div>
+          
+            <div class="form-actions">
+                <input type="button" id="insert" class="btn btn-success" value="Create"/>
+                <a class="btn" href="hu_users_list.html">Back</a>
+            </div>
+			
+		</div>
+    </div>
 </body>
 </html>

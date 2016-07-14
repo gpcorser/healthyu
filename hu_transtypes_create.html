@@ -4,23 +4,95 @@
     <meta charset="utf-8">
     <link   href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="hu_vars.js"></script>
-    <script>
-        function retrievePage() {
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    document.getElementById("body").innerHTML = xhttp.responseText;
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $("#insert").click( function() {
+                var description=$("#description").val();
+                var points=$("#points").val();
+                var hu_activity=$("#hu_activity").val();
+                var strength_activity=$("#strength_activity").val();
+                var fitness_class=$("#fitness_class").val();
+                if ($.trim(hu_activity).length==0)       { hu_activity       = 0; }
+                if ($.trim(strength_activity).length==0) { strength_activity = 0; }
+                if ($.trim(fitness_class).length==0)     { fitness_class     = 0; }
+                var dataString=
+                     "description="+description
+                    +"&points="+points
+                    +"&hu_activity="+hu_activity
+                    +"&strength_activity="+strength_activity
+                    +"&fitness_class="+fitness_class
+                    +"&insert="; 
+                if ($.trim(description).length>0 & $.trim(points).length>0) {
+                    $.ajax( {
+                        type: "POST",
+                        url: URL + "hu_transtypes_create.php",
+                        data: dataString,
+                        crossDomain: true,
+                        cache: false,
+                        beforeSend: function(){ $("#insert").val('Connecting...');},
+                        success: function(data){ 
+                            location.href = URL + "hu_transtypes_list.html"; 
+                        }
+                    });
                 }
-            };
-
-            xhttp.open("GET", URL + "hu_transtypes_create.php", true);
-            xhttp.send();
-        }
+                return false;
+            });
+    });
     </script>
 </head>
 
-<body onload="retrievePage();">
-    <div id="body"></div>    
+<body>
+    <div class="container">
+        <div class="span10 offset1">
+			<div class="row">
+				<h3>HealthyU: Create Transaction Type</h3>
+			</div>
+			
+			<p><a href="hu_start.html" class="btn btn-primary">Back to Start</a></p>		
+
+            <div class="control-group">
+                <label class="control-label">description</label>
+                <div class="controls">
+                    <input id="description" type="text"  placeholder="description" value="" required>
+                </div>
+            </div>	
+            
+            <div class="control-group">
+                <label class="control-label">points</label>
+                <div class="controls">
+                    <input id="points" type="text"  placeholder="points" value="" required>
+                </div>
+            </div>
+          
+            <div class="control-group ">
+                <label class="control-label">hu_activity</label>
+                <div class="controls">
+                    <input id="hu_activity" type="number" placeholder="hu_activity" value="" min="0" max="1">
+                </div>
+            </div>
+            
+            <div class="control-group ">
+                <label class="control-label">strength_activity</label>
+                <div class="controls">
+                    <input id="strength_activity" type="number" placeholder="strength_activity" value="" min="0" max="1">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label class="control-label">fitness_class</label>
+                <div class="controls">
+                    <input id="fitness_class" type="number" placeholder="fitness_class" value="" min="0" max="1">
+                </div>
+            </div>						
+          
+            <div class="form-actions">
+                <input type="button" id="insert" class="btn btn-success" value="Create"/>
+                <a class="btn" href="hu_transtypes_list.html">Back</a>
+            </div>
+			
+		</div>
+    </div> 
 </body>
 </html>
