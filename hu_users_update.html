@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <link   href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="hu_vars.js"></script>
-    <script>
+    <script type="text/javascript">    
+        id = getID();
+    
         function retrievePage() {
             xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -13,16 +16,52 @@
                     document.getElementById("body").innerHTML = xhttp.responseText;
                 }
             };
-
-            id = window.location.search.substring(1);
-            id = id.split("=");
-            xhttp.open("GET", URL + "hu_users_update.php?id=" + id[1], true);
+            
+            xhttp.open("GET", URL + "hu_users_update.php?id=" + id, true);
             xhttp.send();
         }
+        
+        $(document).ready( function() { 
+            $("#update").click( function() { 
+                var username=$("#username").val();
+                var fullname=$("#fullname").val();
+                var password_hash=$("#password_hash").val();
+                var dataString=
+                     "id="+id
+                    +"&username="+username
+                    +"&fullname="+fullname
+                    +"&password_hash="+password_hash
+                    +"&update=";
+                if(   $.trim(username).length>0 
+                    & $.trim(fullname).length>0 
+                    & $.trim(password_hash).length>0) {
+                    $.ajax( {
+                        type: "POST",
+                        url: URL + "hu_users_update.php",
+                        data: dataString,
+                        crossDomain: true,
+                        cache: false,
+                        beforeSend: function(){ $("#update").val('Connecting...');},
+                        success: function(data){ 
+                            location.href = "hu_users_list.html"; 
+                        }
+                    });
+                }
+                return false;
+            });
+        });
     </script>
 </head>
 
 <body onload="retrievePage();">
-    <div id="body"></div>    
+    <div class="container">    
+    	<div class="span10 offset1">
+            <div id="body"></div>
+            <div class="form-actions">
+                <input type="button" id="update" class="btn btn-success" value="Update"/>
+                <a class="btn" href="hu_users_list.html">Back</a>
+            </div>
+		</div>				
+    </div>
 </body>
 </html>

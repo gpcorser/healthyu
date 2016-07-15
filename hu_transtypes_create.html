@@ -33,13 +33,13 @@
                         cache: false,
                         beforeSend: function(){ $("#insert").val('Connecting...');},
                         success: function(data){ 
-                            location.href = URL + "hu_transtypes_list.html"; 
+                            location.href = "hu_transtypes_list.html"; 
                         }
                     });
                 }
                 return false;
             });
-    });
+        });
     </script>
 </head>
 
@@ -90,8 +90,7 @@
             <div class="form-actions">
                 <input type="button" id="insert" class="btn btn-success" value="Create"/>
                 <a class="btn" href="hu_transtypes_list.html">Back</a>
-            </div>
-			
+            </div>			
 		</div>
     </div> 
 </body>

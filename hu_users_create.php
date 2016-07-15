@@ -4,6 +4,7 @@
 	// if values were passed, validate and insert
 	if (isset($_POST['insert'])) {			
 		// get values
+        $id = $_POST['id'];
 		$username = $_POST['username'];
 		$fullname = $_POST['fullname'];
 		$password_hash = $_POST['password_hash'];
