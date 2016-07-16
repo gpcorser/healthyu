@@ -11,12 +11,21 @@
             $("#insert").click( function() {
                 var description=$("#description").val();
                 var points=$("#points").val();
-                var hu_activity=$("#hu_activity").val();
-                var strength_activity=$("#strength_activity").val();
-                var fitness_class=$("#fitness_class").val();
-                if ($.trim(hu_activity).length==0)       { hu_activity       = 0; }
-                if ($.trim(strength_activity).length==0) { strength_activity = 0; }
-                if ($.trim(fitness_class).length==0)     { fitness_class     = 0; }
+                if(document.getElementById('hu_activity').checked) {
+                    var hu_activity=1;
+                } else {
+                    var hu_activity=0;
+                }
+                if(document.getElementById('strength_activity').checked) {
+                    var strength_activity=1;
+                } else {
+                    var strength_activity=0;
+                }
+                if(document.getElementById('fitness_class').checked) {
+                    var fitness_class=1;
+                } else {
+                    var fitness_class=0;
+                }
                 var dataString=
                      "description="+description
                     +"&points="+points
@@ -69,23 +78,23 @@
             <div class="control-group ">
                 <label class="control-label">hu_activity</label>
                 <div class="controls">
-                    <input id="hu_activity" type="number" placeholder="hu_activity" value="" min="0" max="1">
+                    <input id="hu_activity" type="checkbox" placeholder="hu_activity" value="0">
                 </div>
             </div>
             
             <div class="control-group ">
                 <label class="control-label">strength_activity</label>
                 <div class="controls">
-                    <input id="strength_activity" type="number" placeholder="strength_activity" value="" min="0" max="1">
+                    <input id="strength_activity" type="checkbox" placeholder="strength_activity" value="0">
                 </div>
             </div>
             
             <div class="control-group">
                 <label class="control-label">fitness_class</label>
                 <div class="controls">
-                    <input id="fitness_class" type="number" placeholder="fitness_class" value="" min="0" max="1">
+                    <input id="fitness_class" type="checkbox" placeholder="fitness_class" value="0">
                 </div>
-            </div>						
+            </div>
           
             <div class="form-actions">
                 <input type="button" id="insert" class="btn btn-success" value="Create"/>

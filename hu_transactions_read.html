@@ -13,10 +13,8 @@
                 document.getElementById("body").innerHTML = xhttp.responseText;
             }
         };
-
-        id = window.location.search.substring(1);
-        id = id.split("=");
-        xhttp.open("GET", URL + "hu_transactions_read.php?id=" + id[1], true);
+        
+        xhttp.open("GET", URL + "hu_transactions_read.php?id=" + getID(), true);
         xhttp.send();
     </script>   
 </head>

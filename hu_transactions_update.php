@@ -19,19 +19,7 @@
 		$trans_strength_activity = $_POST['trans_strength_activity'];
 		$trans_fitness_class = $_POST['trans_fitness_class'];
 		$minutes = $_POST['minutes'];
-            
-            echo
-            $id .", ".
-            $user_id .", ".
-            $transtype_id .", ".
-            $trans_date .", ".
-            $trans_points .", ".
-            $trans_exercise_points .", ".
-            $trans_hu_activity .", ".
-            $trans_strength_activity .", ".
-            $trans_fitness_class .", ".
-            $minutes;
-            
+        
 		$valid = true;
 		if (empty($user_id) || empty($transtype_id)) {
 			$valid = false;
@@ -152,20 +140,20 @@
             <div class="control-group">
                 <label class="control-label">trans_hu_activity</label>
                 <div class="controls">
-                    <input type="checkbox" name="trans_hu_activity" id="trans_hu_activity" value="1" onclick="trans_hu_activity_click();calcExercisePoints();" <?php echo !empty($trans_hu_activity)?'checked':'';?> >
+                    <input type="checkbox" name="trans_hu_activity" id="trans_hu_activity" onclick="trans_hu_activity_click();calcExercisePoints();" <?php echo !empty($trans_hu_activity)?'checked':'';?> >
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">trans_strength_activity</label>
                 <div class="controls">
-                    <input type="checkbox" name="trans_strength_activity" id="trans_strength_activity" value="1" onclick="trans_strength_activity_click();calcExercisePoints();" <?php echo !empty($trans_strength_activity)?'checked':'';?> >
+                    <input type="checkbox" name="trans_strength_activity" id="trans_strength_activity" onclick="trans_strength_activity_click();calcExercisePoints();" <?php echo !empty($trans_strength_activity)?'checked':'';?> >
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">trans_fitness_class</label>
                 <div class="controls">
-                    <input type="checkbox" name="trans_fitness_class" id="trans_fitness_class" value="1" onclick="trans_fitness_class_click();calcExercisePoints();" <?php echo !empty($trans_fitness_class)?'checked':'';?> >
+                    <input type="checkbox" name="trans_fitness_class" id="trans_fitness_class" onclick="trans_fitness_class_click();calcExercisePoints();" <?php echo !empty($trans_fitness_class)?'checked':'';?> >
                 </div>
             </div>

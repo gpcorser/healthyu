@@ -67,6 +67,6 @@
             <div class="control-group">
                 <label class="control-label">password_hash</label>
                 <div class="controls">
-                    <input id="password_hash" type="text" placeholder="password_hash" value="<?php echo !empty($password_hash)?$password_hash:'';?>" required>
+                    <input id="password_hash" type="password" placeholder="password_hash" value="<?php echo !empty($password_hash)?$password_hash:'';?>" required>
                 </div>
             </div>

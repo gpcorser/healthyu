@@ -28,10 +28,22 @@
                 var trans_date=$("#trans_date").val();
                 var trans_points=$("#trans_points").val();
                 var trans_exercise_points=$("#trans_exercise_points").val();
-                var trans_hu_activity=$("#trans_hu_activity").val();
-                var trans_strength_activity=$("#trans_strength_activity").val();
-                var trans_fitness_class=$("#trans_fitness_class").val();
-                var minutes=$("#minutes").val();                
+                var minutes=$("#minutes").val();
+                if(document.getElementById('trans_hu_activity').checked) {
+                    var trans_hu_activity=1;
+                } else {
+                    var trans_hu_activity=0;
+                }
+                if(document.getElementById('trans_strength_activity').checked) {
+                    var trans_strength_activity=1;
+                } else {
+                    var trans_strength_activity=0;
+                }
+                if(document.getElementById('trans_fitness_class').checked) {
+                    var trans_fitness_class=1;
+                } else {
+                    var trans_fitness_class=0;
+                }
                 var dataString=                
                      "user_id="+user_id
                     +"&transtype_id="+transtype_id
@@ -42,7 +54,7 @@
                     +"&trans_strength_activity="+trans_strength_activity
                     +"&trans_fitness_class="+trans_fitness_class
                     +"&minutes="+minutes
-                    +"&insert=";                
+                    +"&insert=";
                 if (  $.trim(user_id).length>0 
                     & $.trim(transtype_id).length>0
                     & $.trim(trans_date).length>0

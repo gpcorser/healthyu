@@ -54,36 +54,37 @@
             
 			<p><a href="hu_start.html" class="btn btn-primary">Back to Start</a></p>
 			  
-            <div class="control-group <?php echo !empty($descriptionError)?'error':'';?>">
+            <div class="control-group">
                 <label class="control-label">description</label>
                 <div class="controls">
                     <input id="description" type="text"  placeholder="description" value="<?php echo !empty($description)?$description:'';?>" required>
                 </div>
             </div>	
             
-            <div class="control-group <?php echo !empty($pointsError)?'error':'';?>">
+            <div class="control-group">
                 <label class="control-label">points</label>
                 <div class="controls">
                     <input id="points" type="text"  placeholder="points" value="<?php echo !empty($points)?$points:'';?>" required>
                 </div>
             </div>
-          
-            <div class="control-group <?php echo !empty($hu_activityError)?'error':'';?>">
+            
+            <div class="control-group">
                 <label class="control-label">hu_activity</label>
                 <div class="controls">
-                    <input id="hu_activity" type="number" placeholder="hu_activity" value="<?php echo !empty($hu_activity)?$hu_activity:'';?>" min="0" max="1">
+                    <input type="checkbox" name="hu_activity" id="hu_activity" <?php echo !empty($hu_activity)?'checked':'';?> >
                 </div>
             </div>
-            
-            <div class="control-group <?php echo !empty($strength_activityError)?'error':'';?>">
+
+            <div class="control-group">
                 <label class="control-label">strength_activity</label>
                 <div class="controls">
-                    <input id="strength_activity" type="number" placeholder="strength_activity" value="<?php echo !empty($strength_activity)?$strength_activity:'';?>" min="0" max="1">
+                    <input type="checkbox" name="strength_activity" id="strength_activity" <?php echo !empty($strength_activity)?'checked':'';?> >
                 </div>
-            </div>		
-            <div class="control-group <?php echo !empty($fitness_classError)?'error':'';?>">
+            </div>
+
+            <div class="control-group">
                 <label class="control-label">fitness_class</label>
                 <div class="controls">
-                    <input id="fitness_class" type="number" placeholder="fitness_class" value="<?php echo !empty($fitness_class)?$fitness_class:'';?>" min="0" max="1">
+                    <input type="checkbox" name="fitness_class" id="fitness_class" <?php echo !empty($fitness_class)?'checked':'';?> >
                 </div>
             </div>

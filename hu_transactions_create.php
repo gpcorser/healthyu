@@ -20,8 +20,7 @@
 		} 
 
 		// insert record
-		if ($valid) 
-		{
+		if ($valid) {
 			if(empty($trans_hu_activity)) $trans_hu_activity = 0;
 			if(empty($trans_strength_activity)) $trans_strength_activity = 0;
 			if(empty($trans_fitness_class)) $trans_fitness_class = 0;
@@ -80,8 +79,7 @@
                             if($row['strength_activity']==1) $strength_str = ", strength";
                             if($row['fitness_class']==1) $fitness_str = ", fitness";
                             if($row['points']>0) $points_str = trim($row['points']);
-                            else $points_str = "Enter minutes";
-                            # if($row['id']==13) $selected_str = " selected";
+                            else $points_str = "Enter minutes";                            
                             if($row['description']=="Exercise") $selected_str = " selected";
                             echo "<option value='" . $row['id'] . "' " . $selected_str . "> " . 
                                 trim($row['description']) . " (" . 
@@ -122,26 +120,23 @@
                 </div>
             </div>
             
-            <!-- checkbox: trans_hu_activity -->
             <div class="control-group">
                 <label class="control-label">trans_hu_activity</label>
                 <div class="controls">
-                    <input type="checkbox" name="trans_hu_activity" id="trans_hu_activity" value="1" onclick="trans_hu_activity_click();calcExercisePoints();">
+                    <input type="checkbox" name="trans_hu_activity" id="trans_hu_activity" onclick="trans_hu_activity_click();calcExercisePoints();">
                 </div>
             </div>
             
-            <!-- checkbox: trans_strength_activity -->
             <div class="control-group">
                 <label class="control-label">trans_strength_activity</label>
                 <div class="controls">
-                    <input type="checkbox" name="trans_strength_activity" id="trans_strength_activity" value="1" onclick="trans_strength_activity_click();calcExercisePoints();">
+                    <input type="checkbox" name="trans_strength_activity" id="trans_strength_activity" onclick="trans_strength_activity_click();calcExercisePoints();">
                 </div>
             </div>
             
-            <!-- checkbox: trans_fitness_class -->
             <div class="control-group">
                 <label class="control-label">trans_fitness_class</label>
                 <div class="controls">
-                    <input type="checkbox" name="trans_fitness_class" id="trans_fitness_class" value="1" onclick="trans_fitness_class_click();calcExercisePoints();">
+                    <input type="checkbox" name="trans_fitness_class" id="trans_fitness_class" onclick="trans_fitness_class_click();calcExercisePoints();">
                 </div>
             </div>          

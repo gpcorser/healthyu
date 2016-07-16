@@ -9,7 +9,7 @@
 		$hu_activity = $_POST['hu_activity'];
 		$strength_activity = $_POST['strength_activity'];
 		$fitness_class = $_POST['fitness_class'];
-		echo $_POST;
+		
 		$valid = true;
 		if (empty($description)) { $valid = false; } 
 		if ($hu_activity != 0 && $hu_activity != 1) { $valid = false; } 

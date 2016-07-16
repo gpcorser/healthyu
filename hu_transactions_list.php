@@ -53,8 +53,6 @@
 						echo '<a class="btn" href="hu_transactions_read.html?id='.$row[0].'">Read</a>';
 						echo '&nbsp;';
 						echo '<a class="btn btn-success" href="hu_transactions_update.html?id='.$row[0].'">Update</a>';
-						echo '&nbsp;';
-						echo '<a class="btn btn-danger" href="hu_transactions_delete.html?id='.$row[0].'">Delete</a>';
 						echo '</td>';
 						echo '</tr>';
 					}

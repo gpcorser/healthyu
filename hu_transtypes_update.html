@@ -25,12 +25,21 @@
             $("#update").click( function() {
                 var description=$("#description").val();
                 var points=$("#points").val();
-                var hu_activity=$("#hu_activity").val();
-                var strength_activity=$("#strength_activity").val();
-                var fitness_class=$("#fitness_class").val();
-                if ($.trim(hu_activity).length==0)       { hu_activity       = 0; }
-                if ($.trim(strength_activity).length==0) { strength_activity = 0; }
-                if ($.trim(fitness_class).length==0)     { fitness_class     = 0; }
+                if(document.getElementById('hu_activity').checked) {
+                    var hu_activity=1;
+                } else {
+                    var hu_activity=0;
+                }
+                if(document.getElementById('strength_activity').checked) {
+                    var strength_activity=1;
+                } else {
+                    var strength_activity=0;
+                }
+                if(document.getElementById('fitness_class').checked) {
+                    var fitness_class=1;
+                } else {
+                    var fitness_class=0;
+                }
                 var dataString=
                      "id="+id
                     +"&description="+description
