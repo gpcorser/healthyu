@@ -44,29 +44,29 @@
 	}
 ?>
 
-    		<div class="row">
-		    	<h3>HealthyU: Update User (Password)</h3>
-		    </div>
-            
-			<p><a href="hu_start.html" class="btn btn-primary">Back to Start</a></p>
-            
-            <div class="control-group">
-                <label class="control-label">username</label>
-                <div class="controls">
-                    <input id="username" type="text"  placeholder="username" value="<?php echo !empty($username)?$username:'';?>" required>
-                </div>
-            </div>
-            
-            <div class="control-group">
-                <label class="control-label">fullname</label>
-                <div class="controls">
-                    <input id="fullname" type="text"  placeholder="fullname" value="<?php echo !empty($fullname)?$fullname:'';?>" required>
-                </div>
-            </div>
-          
-            <div class="control-group">
-                <label class="control-label">password_hash</label>
-                <div class="controls">
-                    <input id="password_hash" type="password" placeholder="password_hash" value="<?php echo !empty($password_hash)?$password_hash:'';?>" required>
-                </div>
-            </div>
+<div style="margin-top: 5%; margin-bottom: 5%; margin-left: 3% !important; margin-right: 3% !important;">
+    <h3>HealthyU: Update User Password</h3>
+    <p><a href="hu_start.html" class="btn btn-primary">Back to Start</a></p>
+    <div class="control-group">
+        <label class="control-label">username</label>
+        <div class="controls">
+            <input id="username" type="text"  placeholder="username" value="<?php echo !empty($username)?$username:'';?>" required>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">fullname</label>
+        <div class="controls">
+            <input id="fullname" type="text"  placeholder="fullname" value="<?php echo !empty($fullname)?$fullname:'';?>" required>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">password_hash</label>
+        <div class="controls">
+            <input id="password_hash" type="password" placeholder="password_hash" value="<?php echo !empty($password_hash)?$password_hash:'';?>" required>
+        </div>
+    </div>
+    <div class="form-actions">
+        <input type="button" id="update" class="btn btn-success" value="Update"/>
+        <a class="btn" href="hu_users_list.html">Back</a>
+    </div>
+</div>

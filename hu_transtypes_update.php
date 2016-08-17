@@ -48,43 +48,41 @@
 	}
 ?>
 
-    		<div class="row">
-		    	<h3>HealthyU: Update Transaction Type</h3>
-		    </div>
-            
-			<p><a href="hu_start.html" class="btn btn-primary">Back to Start</a></p>
-			  
-            <div class="control-group">
-                <label class="control-label">description</label>
-                <div class="controls">
-                    <input id="description" type="text"  placeholder="description" value="<?php echo !empty($description)?$description:'';?>" required>
-                </div>
-            </div>	
-            
-            <div class="control-group">
-                <label class="control-label">points</label>
-                <div class="controls">
-                    <input id="points" type="text"  placeholder="points" value="<?php echo !empty($points)?$points:'';?>" required>
-                </div>
-            </div>
-            
-            <div class="control-group">
-                <label class="control-label">hu_activity</label>
-                <div class="controls">
-                    <input type="checkbox" name="hu_activity" id="hu_activity" <?php echo !empty($hu_activity)?'checked':'';?> >
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">strength_activity</label>
-                <div class="controls">
-                    <input type="checkbox" name="strength_activity" id="strength_activity" <?php echo !empty($strength_activity)?'checked':'';?> >
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label">fitness_class</label>
-                <div class="controls">
-                    <input type="checkbox" name="fitness_class" id="fitness_class" <?php echo !empty($fitness_class)?'checked':'';?> >
-                </div>
-            </div>
+<div style="margin-top: 5%; margin-bottom: 5%; margin-left: 3%; margin-right: 3%;">
+    <h3>HealthyU: Update Transaction Type</h3>
+    <p><a href="hu_start.html" class="btn btn-primary">Back to Start</a></p>
+    <div class="control-group">
+        <label class="control-label">description</label>
+        <div class="controls">
+            <input id="description" type="text"  placeholder="description" value="<?php echo !empty($description)?$description:'';?>" required>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">points</label>
+        <div class="controls">
+            <input id="points" type="text"  placeholder="points" value="<?php echo !empty($points)?$points:'';?>" required>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">hu_activity</label>
+        <div class="controls">
+            <input type="checkbox" name="hu_activity" id="hu_activity" <?php echo !empty($hu_activity)?'checked':'';?> >
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">strength_activity</label>
+        <div class="controls">
+            <input type="checkbox" name="strength_activity" id="strength_activity" <?php echo !empty($strength_activity)?'checked':'';?> >
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">fitness_class</label>
+        <div class="controls">
+            <input type="checkbox" name="fitness_class" id="fitness_class" <?php echo !empty($fitness_class)?'checked':'';?> >
+        </div>
+    </div>
+    <div class="form-actions">
+        <input type="button" id="update" class="btn btn-success" value="Update"/>
+        <a class="btn" href="hu_transtypes_list.html">Back</a>
+    </div>
+</div>

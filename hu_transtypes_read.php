@@ -18,70 +18,62 @@
 	}
 ?>
 
-    <div class="container">
-    
-		<div class="span10 offset1">
-			<div class="row">
-				<h3>HealthyU: Read Transaction Type (Details)</h3>
-			</div>
-			<p>
-				<a href="hu_start.html" class="btn btn-primary">Back to Start</a>
-			</p>
-			<div class="form-horizontal" >
-				<div class="control-group">
-					<label class="control-label">description</label>
-					<div class="controls">
-						<label class="checkbox">
-							<?php echo $data['description'];?>
-						</label>
-					</div>
-				</div>
-			</div>
-			<div class="form-horizontal" >
-				<div class="control-group">
-					<label class="control-label">points</label>
-					<div class="controls">
-						<label class="checkbox">
-							<?php echo $data['points'];?>
-						</label>
-					</div>
-				</div>
-			</div>
-			<div class="form-horizontal" >
-				<div class="control-group">
-					<label class="control-label">hu_activity</label>
-					<div class="controls">
-						<label class="checkbox">
-							<?php echo $data['hu_activity'];?>
-						</label>
-					</div>
-				</div>
-			</div>
-			<div class="form-horizontal" >
-				<div class="control-group">
-					<label class="control-label">strength_activity</label>
-					<div class="controls">
-						<label class="checkbox">
-							<?php echo $data['strength_activity'];?>
-						</label>
-					</div>
-				</div>
-			</div>
-			<div class="form-horizontal" >
-				<div class="control-group">
-					<label class="control-label">fitness_class</label>
-					<div class="controls">
-						<label class="checkbox">
-							<?php echo $data['fitness_class'];?>
-						</label>
-					</div>
-				</div>
-			</div>
-			<div class="form-actions">
-				<a class="btn" href="hu_transtypes_list.html">Back</a>
-			</div>
-
-			</div>
-		</div>
-				
-    </div> <!-- /container -->
+<div style="margin-top: 5%; margin-bottom: 5%; margin-left: 3%; margin-right: 3%;">
+    <h3>HealthyU: Transaction Type Details</h3>        
+    <p>
+        <a href="hu_start.html" class="btn btn-primary">Back to Start</a>
+    </p>
+    <div class="form-horizontal" >
+        <div class="control-group">
+            <label class="control-label">description</label>
+            <div class="controls">
+                <label class="checkbox">
+                    <?php echo $data['description'];?>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal" >
+        <div class="control-group">
+            <label class="control-label">points</label>
+            <div class="controls">
+                <label class="checkbox">
+                    <?php echo $data['points'];?>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal" >
+        <div class="control-group">
+            <label class="control-label">hu_activity</label>
+            <div class="controls">
+                <label class="checkbox">
+                    <?php echo $data['hu_activity'];?>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal" >
+        <div class="control-group">
+            <label class="control-label">strength_activity</label>
+            <div class="controls">
+                <label class="checkbox">
+                    <?php echo $data['strength_activity'];?>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal" >
+        <div class="control-group">
+            <label class="control-label">fitness_class</label>
+            <div class="controls">
+                <label class="checkbox">
+                    <?php echo $data['fitness_class'];?>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-actions">
+        <a class="btn" href="hu_transtypes_list.html">Back</a>
+    </div>    
+</div>

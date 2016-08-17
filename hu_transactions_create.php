@@ -37,106 +37,109 @@
 	}
 ?>
     
-			<div class="row">
-				<h3>HealthyU: Create Transaction</h3>
-			</div>
-			
-            <p><a href="hu_start.html" class="btn btn-primary">Back to Start</a></p>
-        
-            <div class="control-group">
-                <label class="control-label">user_id</label>
-                <div class="controls">
-                    <?php
-                        $pdo = Database::connect();
-                        $sql = 'SELECT * FROM healthyu_users ORDER BY username ASC';
-                        echo "<select class='form-control' name='user_id' id='user_id'>";
-                        foreach ($pdo->query($sql) as $row) {
-                            echo "<option value='" . $row['id'] . " '> " . 
-                                trim($row['username']) . " (" . 
-                                trim($row['fullname']) . ") " .
-                                "</option>";
-                        }
-                        echo "</select>";
-                        Database::disconnect();
-                    ?>
-                </div>
-            </div>
-          
-            <div class="control-group">
-                <label class="control-label">transtype_id</label>
-                <div class="controls">
-                    <?php
-                        $pdo = Database::connect();							
-                        $sql = 'SELECT * FROM healthyu_transtypes ORDER BY description ASC';
-                        echo "<select class='form-control' name='transtype_id' id='transtype_id'>";
-                        foreach ($pdo->query($sql) as $row) {
-                            $hu_str = "";
-                            $strength_str = "";
-                            $fitness_str = "";
-                            $points_str = "";
-                            $selected_str = "";
-                            if($row['hu_activity']==1) $hu_str = ", hu_activity";
-                            if($row['strength_activity']==1) $strength_str = ", strength";
-                            if($row['fitness_class']==1) $fitness_str = ", fitness";
-                            if($row['points']>0) $points_str = trim($row['points']);
-                            else $points_str = "Enter minutes";                            
-                            if($row['description']=="Exercise") $selected_str = " selected";
-                            echo "<option value='" . $row['id'] . "' " . $selected_str . "> " . 
-                                trim($row['description']) . " (" . 
-                                trim($points_str) . trim($hu_str) . trim($strength_str) . ") " .
-                                "</option>";
-                        }
-                        echo "</select>";
-                        Database::disconnect();
-                    ?>
-                </div>
-            </div>
-            
-            <div class="control-group">
-                <label class="control-label">trans_date</label>
-                <div class="controls">
-                    <input id="trans_date" name="trans_date" type="date"  placeholder="date" value="" required>
-                </div>
-            </div>
-            
-            <div class="control-group">
-                <label class="control-label">minutes</label>
-                <div class="controls">
-                    <input name="minutes" type="number"  placeholder="minutes" value="" id="minutes" onkeyup="calcExercisePoints()" min="0" required>
-                </div>
-            </div>	
-            
-            <div class="control-group">
-                <label class="control-label">trans_exercise_points</label>
-                <div class="controls">
-                    <input type="text" name="trans_exercise_points" id="trans_exercise_points" value="0" readonly>
-                </div>
-            </div>
-            
-            <div class="control-group">
-                <label class="control-label">trans_points</label>
-                <div class="controls">
-                    <input type="text" name="trans_points" id="trans_points" value="0" readonly>
-                </div>
-            </div>
-            
-            <div class="control-group">
-                <label class="control-label">trans_hu_activity</label>
-                <div class="controls">
-                    <input type="checkbox" name="trans_hu_activity" id="trans_hu_activity" onclick="trans_hu_activity_click();calcExercisePoints();">
-                </div>
-            </div>
-            
-            <div class="control-group">
-                <label class="control-label">trans_strength_activity</label>
-                <div class="controls">
-                    <input type="checkbox" name="trans_strength_activity" id="trans_strength_activity" onclick="trans_strength_activity_click();calcExercisePoints();">
-                </div>
-            </div>
-            
-            <div class="control-group">
-                <label class="control-label">trans_fitness_class</label>
-                <div class="controls">
-                    <input type="checkbox" name="trans_fitness_class" id="trans_fitness_class" onclick="trans_fitness_class_click();calcExercisePoints();">
-                </div>
-            </div>          
+<div style="margin-top: 5%; margin-bottom: 5%; margin-left: 3%; margin-right: 3%;">
+    <h3>HealthyU: Create Transaction</h3>    
+    <p><a href="hu_start.html" class="btn btn-primary">Back to Start</a></p>
+    <div class="control-group">
+        <label class="control-label">user_id</label>
+        <div class="controls">
+            <?php
+                $pdo = Database::connect();
+                $sql = 'SELECT * FROM healthyu_users ORDER BY username ASC';
+                echo "<select class='form-control' name='user_id' id='user_id'>";
+                foreach ($pdo->query($sql) as $row) {
+                    echo "<option value='" . $row['id'] . " '> " . 
+                        trim($row['username']) . " (" . 
+                        trim($row['fullname']) . ") " .
+                        "</option>";
+                }
+                echo "</select>";
+                Database::disconnect();
+            ?>
+        </div>
+    </div>
+  
+    <div class="control-group">
+        <label class="control-label">transtype_id</label>
+        <div class="controls">
+            <?php
+                $pdo = Database::connect();							
+                $sql = 'SELECT * FROM healthyu_transtypes ORDER BY description ASC';
+                echo "<select class='form-control' name='transtype_id' id='transtype_id'>";
+                foreach ($pdo->query($sql) as $row) {
+                    $hu_str = "";
+                    $strength_str = "";
+                    $fitness_str = "";
+                    $points_str = "";
+                    $selected_str = "";
+                    if($row['hu_activity']==1) $hu_str = ", hu_activity";
+                    if($row['strength_activity']==1) $strength_str = ", strength";
+                    if($row['fitness_class']==1) $fitness_str = ", fitness";
+                    if($row['points']>0) $points_str = trim($row['points']);
+                    else $points_str = "Enter minutes";                            
+                    if($row['description']=="Exercise") $selected_str = " selected";
+                    echo "<option value='" . $row['id'] . "' " . $selected_str . "> " . 
+                        trim($row['description']) . " (" . 
+                        trim($points_str) . trim($hu_str) . trim($strength_str) . ") " .
+                        "</option>";
+                }
+                echo "</select>";
+                Database::disconnect();
+            ?>
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label">trans_date</label>
+        <div class="controls">
+            <input id="trans_date" name="trans_date" type="date"  placeholder="date" value="" required>
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label">minutes</label>
+        <div class="controls">
+            <input name="minutes" type="number"  placeholder="minutes" value="" id="minutes" onkeyup="calcExercisePoints()" min="0" required>
+        </div>
+    </div>	
+    
+    <div class="control-group">
+        <label class="control-label">trans_exercise_points</label>
+        <div class="controls">
+            <input type="text" name="trans_exercise_points" id="trans_exercise_points" value="0" readonly>
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label">trans_points</label>
+        <div class="controls">
+            <input type="text" name="trans_points" id="trans_points" value="0" readonly>
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label">trans_hu_activity</label>
+        <div class="controls">
+            <input type="checkbox" name="trans_hu_activity" id="trans_hu_activity" onclick="trans_hu_activity_click();calcExercisePoints();">
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label">trans_strength_activity</label>
+        <div class="controls">
+            <input type="checkbox" name="trans_strength_activity" id="trans_strength_activity" onclick="trans_strength_activity_click();calcExercisePoints();">
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label">trans_fitness_class</label>
+        <div class="controls">
+            <input type="checkbox" name="trans_fitness_class" id="trans_fitness_class" onclick="trans_fitness_class_click();calcExercisePoints();">
+        </div>
+    </div>
+    
+    <div class="form-actions">
+        <input type="button" id="insert" class="btn btn-success" value="Create"/>
+        <a class="btn" href="hu_transactions_list.html">Back</a>
+    </div>
+</div>
